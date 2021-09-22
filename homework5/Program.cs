@@ -65,6 +65,7 @@ namespace homework5
             }
 
         }
+        //utilization GET & SET
         public double Preco
         {
             get { return _preco; }
@@ -74,7 +75,7 @@ namespace homework5
             get { return _quantidade; }
         }
 
-        //utilization GET & SET
+        
         public string GetNome()
         {
             return _nome;
