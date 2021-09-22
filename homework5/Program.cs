@@ -16,8 +16,6 @@ namespace homework5
             double preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             Console.Write("Quantidade no estoque: ");
             int quantidade = int.Parse(Console.ReadLine());
-
-
             // creates product data
             Produto p = new Produto(nome, preco, quantidade);
             //show product data
@@ -42,56 +40,35 @@ namespace homework5
         private string _nome;
         private double _preco;
         private int _quantidade;
-
         //constructor
-        public Produto() { }
+        public Produto()
+        {
+
+        }
         public Produto(string nome, double preco, int quantidade)
         {
-            nome = _nome;
-            preco = _preco;
-            quantidade = _quantidade;
+            _nome = nome;
+            _preco = preco;
+            _quantidade = quantidade;
         }
-
-        //get & set
+        //properties
         public string Nome
         {
             get { return _nome; }
-            set
-            {
-                if (value != null && value.Length > 1)
+            set { if(value !=null && value.Length > 1)
                 {
                     _nome = value;
-                }
-            }
-
+                } }
         }
         public double Preco
         {
             get { return _preco; }
         }
-        public int quantidade
+        public int Quantidade
         {
             get { return _quantidade; }
         }
-
-        //utilization GET & SET
-        public string GetNome()
-        {
-            return _nome;
-        }
-        public void setNome(string nome)
-        {
-            _nome = nome;
-        }
-        public int GetQuantidade()
-        {
-            return _quantidade;
-        }
-
-        public double GetPreco()
-        {
-            return _preco;
-        }
+        
         //calculates total stock value, based on item price and quantity
         public double ValorTotalEmEstoque()
         {
