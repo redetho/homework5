@@ -16,8 +16,6 @@ namespace homework5
             double preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             Console.Write("Quantidade no estoque: ");
             int quantidade = int.Parse(Console.ReadLine());
-
-
             // creates product data
             Produto p = new Produto(nome, preco, quantidade);
             //show product data
@@ -39,81 +37,37 @@ namespace homework5
     public class Produto
     {
         //declaration
-            private string _nome;
-            private double _preco;
-            private int _quantidade;
-
-        //constructor
-        public Produto() { }
+        public string Nome;
+        public double Preco;
+        public int Quantidade;
         public Produto(string nome, double preco, int quantidade)
         {
-            nome = _nome;
-            preco = _preco;
-            quantidade = _quantidade;
-        }
-
-        //get & set
-        public string Nome
-        {
-            get { return _nome; }
-            set
-            {
-                if (value != null && value.Length > 1)
-                {
-                    _nome = value;
-                }
-            }
-
-        }
-        public double Preco
-        {
-            get { return _preco; }
-        }
-        public int quantidade
-        {
-            get { return _quantidade; }
-        }
-
-        //utilization GET & SET
-        public string GetNome()
-        {
-            return _nome;
-        }
-        public void setNome(string nome)
-        {
-            _nome = nome;
-        }
-        public int GetQuantidade()
-        {
-            return _quantidade;
-        }
-
-        public double GetPreco()
-        {
-            return _preco;
+            nome = nome;
+            preco = preco;
+            quantidade = quantidade;
         }
         //calculates total stock value, based on item price and quantity
         public double ValorTotalEmEstoque()
         {
-            return _preco * _quantidade;
+            return Preco * Quantidade;
         }
         //adds to the stock
         public void AdicionarProduto(int quantidade)
         {
-            _quantidade += quantidade;
+            Quantidade += quantidade;
         }
         //removes from the stock
         public void RemoverProduto(int quantidade)
         {
-            _quantidade = _quantidade - quantidade;
+            Quantidade = Quantidade - quantidade;
         }
         //overrides values
         public override string ToString()
         {
-            return _nome
+            return Nome
             + ", R$"
-            + _preco.ToString("F2", CultureInfo.InvariantCulture)
-            + _quantidade
+            + Preco.ToString("F2", CultureInfo.InvariantCulture)
+            + Quantidade
             + " unidades, Total: R$"
             + ValorTotalEmEstoque().ToString("F2", CultureInfo.InvariantCulture);
         }
